@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link href="/css/font.css" rel="stylesheet" type="text/css" />
+    <link href="/css/reset.css" rel="stylesheet" type="text/css">
+    <link href="/views/kr/join/join.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="/javascripts/util.js"></script>
+    <script type="text/javascript" src="/javascripts/join.js"></script>
+
+    <title>Banaba</title>
+  </head>
+
+  <body>
+    <div id="Join">
+      <div class="join-wrap">
+        <div class="join-form">
+          <div class="title">회원가입페이지</div>
+          <div class="title-line"></div>
+
+          <form id="joinForm" name="joinForm" method="POST" action="/kr/join">
+            <input name="name" placeholder="이름"></input>
+            <input name="email" placeholder="이메일"></input>
+      
+            </br>
+    
+            <input name="password" type="password" placeholder="비밀번호" autocomplete="new-password"></input>
+            <input name="withdraw" placeholder="출금비밀번호"></input>
+          </form>
+    
+          <div class="join-btn ntRegular" onclick="joinCheck(<%= JSON.stringify(data) %>)">회원가입하기</div>
+        </div>
+
+        <div class="welecom">
+          <div class="about">About</div>
+
+          <div class="about-info">
+            <div>
+              <div class="circle"></div>
+              <div>123456</div>
+            </div>
+
+            <div>
+              <div class="circle"></div>
+              <div>123456</div>
+            </div>
+
+            <div>
+              <div class="circle"></div>
+              <div>123456</div>
+            </div>
+
+            <div>
+              <div class="circle"></div>
+              <div>123456</div>
+            </div>
+          </div>
+
+          <div class="copy-right">Copyright © 2020 BANABA</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+

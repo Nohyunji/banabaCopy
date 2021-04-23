@@ -1,0 +1,109 @@
+#WithdrawBit {
+    width:100%;
+    height:100%;
+}
+
+#WithdrawBit .contents {
+    height: 100%;
+    padding: 20px;
+    background: #fff;
+    box-sizing: border-box;
+    box-shadow: 0 10px 40px 0 rgb(62 57 107 / 7%), 0 2px 9px 0 rgb(62 57 107 / 6%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#WithdrawBit .contents .my-withdrawBit {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+#WithdrawBit .contents .my-withdrawBit .bfc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+}
+
+#WithdrawBit .contents .my-withdrawBit .bfc .bfc-img {
+    width:70px;
+}
+
+#WithdrawBit .contents .my-withdrawBit .bfc .bfc-img > img {
+    width:100%;
+}
+
+#WithdrawBit .contents .my-withdrawBit .withdrawBit-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+#WithdrawBit .contents .my-withdrawBit .withdrawBit-info div:nth-child(old) {
+    font-size: 18px;
+}
+
+#WithdrawBit .contents .my-withdrawBit .withdrawBit-info div:nth-child(even) {
+    font-size: 25px;
+    color:#a1cea8;
+    padding:10px 0;
+}
+
+#WithdrawBit .contents .bfc-withdraw{
+    padding:10px;
+}
+  
+#WithdrawBit .contents .bfc-withdraw div:nth-child(1) {
+    box-sizing: border-box;
+    padding: 10px 0;
+    font-size: 20px;
+    border-bottom:2px solid #a1cea8;
+}
+
+#WithdrawBit .contents .withdraw-form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px;
+}
+
+#WithdrawBit .contents .withdraw-form > div {
+    padding: 10px 0;
+}
+
+#WithdrawBit .contents .withdraw-form > div:nth-child(old) {
+    font-size: 18px;
+}
+
+#WithdrawBit .contents .withdraw-form div > input {
+    border-radius: 5px;
+    background-color: #e8f0fe;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 14px;
+} 
+
+#WithdrawBit .contents .withdraw-form .apply {
+    border:1px solid #a1cea8;
+    color:#a1cea8;
+    background: #eaf3ec;
+    border-radius: 5px;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition-duration: 0.3s;
+    margin-top: 20px;
+}
+
+#WithdrawBit .contents .withdraw-form .apply:hover {
+    background: #a1cea8;
+    color:#fff;
+    transition-duration: 0.3s;
+}

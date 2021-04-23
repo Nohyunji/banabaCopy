@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <link rel="icon" href="/favicon.ico" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    
+    <link href="/css/font.css" rel="stylesheet" type="text/css">
+    <link href="/css/reset.css" rel="stylesheet" type="text/css">
+    <link href="/views/kr/login/login.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript" src="/javascripts/login.js"></script>
+    <script type="text/javascript" src="/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="/javascripts/util.js"></script>
+
+    <title>Banaba</title>
+  </head>
+
+  <body>
+    <div id="Login">
+      <div class="login-wrap">
+        <div class="welecom">
+          <div class="title ntBold">
+            <img src="../../../images/logo.svg"/>
+          </div>
+
+          <div class="ntRegular">아직 바나바 회원이 아니신가요?</div>
+
+          <div class="join-btn ntRegular" onclick="location.href='/kr/join'">회원가입</div>
+        </div>
+
+        <div class="form-wrap">
+          <div class="title ntBold">Login</div>
+          
+          <div class="title-line"></div>
+
+          <form id="login">
+            <input name="email" placeholder="이메일"></input>
+      
+            </br>
+    
+            <input name="password" type="password" placeholder="비밀번호"></input>
+          </form>
+          
+          <div class="login-btn ntRegular">
+            <div onclick="idCheck(<%= JSON.stringify(data) %>)">로그인</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

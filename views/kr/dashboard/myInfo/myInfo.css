@@ -1,0 +1,71 @@
+#MyInfo {
+    width:100%;
+    height:100%;
+}
+
+#MyInfo .contents{
+    height: 100%;
+    padding: 20px;
+    background: #fff;
+    box-sizing: border-box;
+    box-shadow: 0 10px 40px 0 rgb(62 57 107 / 7%), 0 2px 9px 0 rgb(62 57 107 / 6%);
+}
+  
+#MyInfo .contents .infoTitle{
+    padding:10px;
+}
+  
+#MyInfo .contents .infoTitle div:nth-child(1) {
+    box-sizing: border-box;
+    padding: 10px 0;
+    font-size: 20px;
+    border-bottom:2px solid #a1cea8;
+}
+
+#MyInfo .contents .info-form {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 10px;
+}
+
+#MyInfo .contents .info-form > div {
+    padding: 10px 0;
+}
+
+#MyInfo .contents .info-form > div:nth-child(old) {
+    font-size: 18px;
+}
+
+#MyInfo .contents .info-form div > input {
+    border-radius: 5px;
+    background-color: #e8f0fe;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 14px;
+} 
+
+#MyInfo .contents .info-form .btn-wrap{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+#MyInfo .contents .info-form .btn-wrap > div{
+    border-radius: 5px;
+    padding: 15px;
+    border:1px solid #a1cea8;
+    color:#a1cea8;
+    background: #eaf3ec;
+    box-sizing: border-box;
+    margin-left: 10px;
+    cursor: pointer;
+    transition-duration: 0.3s;
+}
+
+#MyInfo .contents .info-form .btn-wrap > div:hover{
+    background: #a1cea8;
+    color:#fff;
+    transition-duration: 0.3s;
+}

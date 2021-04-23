@@ -1,0 +1,66 @@
+#StakingList {
+    width:100%;
+    height:100%;
+}
+
+#StakingList .contents {
+    height: 100%;
+    padding: 20px;
+    background: #fff;
+    box-sizing: border-box;
+    box-shadow: 0 10px 40px 0 rgb(62 57 107 / 7%), 0 2px 9px 0 rgb(62 57 107 / 6%);
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+}
+
+#StakingList .contents .my-stakingList {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+#StakingList .contents .my-stakingList .bfc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+}
+
+#StakingList .contents .my-stakingList .bfc .bfc-img {
+    width:70px;
+}
+
+#StakingList .contents .my-stakingList .bfc .bfc-img > img {
+    width:100%;
+}
+
+#StakingList .contents .my-stakingList .my-stakingInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+#StakingList .contents .my-stakingList .my-stakingInfo div:nth-child(old) {
+    font-size: 18px;
+}
+
+#StakingList .contents .my-stakingList .my-stakingInfo div:nth-child(even) {
+    font-size: 25px;
+    color:#a1cea8;
+    padding:10px 0;
+}
+
+#StakingList .contents .bfc-stakingList{
+    padding:10px;
+}
+  
+#StakingList .contents .bfc-stakingList div:nth-child(1) {
+    box-sizing: border-box;
+    padding: 10px 0;
+    font-size: 20px;
+    border-bottom:2px solid #a1cea8;
+}
+  

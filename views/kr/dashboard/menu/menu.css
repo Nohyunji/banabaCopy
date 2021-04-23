@@ -1,0 +1,45 @@
+#Menu .menu-contents .menu-name {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+#Menu .menu-contents .menu-name div:nth-child(2) {
+  width: 20px;
+  margin-right: 10px;
+}
+
+#Menu .menu-contents .menu-name div:nth-child(3) {
+  color: #c39168;
+}
+
+#Menu .menu-contents .menu-name img {
+  width: 100%;
+}
+
+#Menu .menu-contents .menu-name .line{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 62px;
+  background-color: #c39168;
+  display: none;
+}
+
+/* withdrawCoin */
+#Menu .menu-contents #withdrawCoin > div {
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  color: #c39168;
+}
+
+#Menu .menu-contents #withdrawCoin > div:hover{
+  background: #c39168;
+  color:#fff;
+}

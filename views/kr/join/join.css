@@ -1,0 +1,127 @@
+#Join {
+  margin: 0 auto;
+  width: 1200px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+#Join .join-wrap {
+  display: flex;
+  width: 100%;
+  height: 60%;
+  box-shadow: 0 5px 20px rgb(0 0 0 / 12%);
+  border-radius: 20px;
+  /* overflow: hidden; */
+  position: relative;
+}
+
+#Join .join-wrap > div {
+  padding: 20px;
+  position: absolute;
+}
+
+/* left content */
+#Join .join-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #e8f0fe;
+  width: 500px;
+  height: 600px;
+  top: -37px;
+  left: 90px;
+  color: #fff;
+}
+
+#Join .join-form .title {
+  font-size: 20px;
+  padding: 20px 0;
+  color: #a1cea8;
+  font-weight: bold;
+  text-shadow: #fff;
+  text-shadow: #fc0 1px 0 22px;
+}
+
+#Join .join-form .title-line {
+  width: 100px;
+  height: 5px;
+  background: #fff;
+}
+
+#Join #joinForm > input {
+  width: 100%;
+  box-sizing: border-box;
+  background: #fff;
+  padding: 15px;
+  margin: 5px 0;
+  color: #a1cea8;
+}
+
+input::placeholder {
+  color: #dbe7fa;
+  font-style: italic;
+}
+
+#Join .join-form .join-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 30px;
+  background: #fff;
+  color: #a1cea8;
+  padding: 10px;
+  border-radius: 3px;
+  margin: 35px 0;
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+
+#Join .join-form .join-btn:hover {
+  color: #fff;
+  background: #a1cea8;
+  box-shadow: 0 5px 30px rgb(224 224 224 / 100%);
+  transition-duration: 0.3s;
+}
+
+/* right content */
+#Join .welecom {
+  right: 0;
+  width: 45%;
+  height: 100%;
+  box-sizing: border-box;
+  background-image: url(../../../images/back.svg);
+  background-repeat: no-repeat;
+}
+
+#Join .welecom .about {
+  font-size: 80px;
+  padding: 40px 0;
+  color: #a1cea8;
+}
+
+#Join .welecom .about-info {
+  height: 60%;
+}
+
+#Join .welecom .about-info > div {
+  display: flex;
+  align-items: center;
+  color: #a1cea8;
+  padding: 10px;
+}
+
+#Join .welecom .about-info .circle {
+  width: 20px;
+  height: 20px;
+  background: #a1cea8;
+  border-radius: 100%;
+  margin-right: 5px;
+}
+
+#Join .welecom .copy-right {
+  text-align: center;
+  font-size: 12px;
+}

@@ -1,0 +1,137 @@
+#Home {
+    width:100%;
+    height:100%;
+}
+
+#Home .contents{
+    height: 100%;
+    padding: 20px;
+    background: #fff;
+    box-sizing: border-box;
+    box-shadow: 0 10px 40px 0 rgb(62 57 107 / 7%), 0 2px 9px 0 rgb(62 57 107 / 6%);
+}
+  
+#Home .contents .coin-wrap {
+    display: flex;
+    justify-content: space-around;
+    height: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#Home .contents .coin-wrap > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 250px;
+    height: 300px;
+    background-color: #a1cea8;
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#Home .contents .coin-wrap > div:nth-child(2) {
+    background-color: #d0dfb2;
+}
+
+#Home .contents .coin-wrap > div:nth-child(3) {
+    background-color: #d4d8ad;
+}
+
+#Home .contents .coin-wrap .bfc,
+#Home .contents .coin-wrap .ethereum,
+#Home .contents .coin-wrap .bnb {
+    display: flex;
+    align-items: center;
+}
+
+#Home .contents .coin-wrap .bfc > div:nth-child(1),   
+#Home .contents
+.ethereum
+> div:nth-child(1),
+#Home .contents .coin-wrap .bnb > div:nth-child(1) {
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+#Home .contents .coin-wrap .bfc > div:nth-child(2),   
+#Home .contents
+.ethereum
+> div:nth-child(2),
+#Home .contents .coin-wrap .bnb > div:nth-child(2) {
+    font-size: 20px;
+    padding: 10px;
+}
+
+#Home .contents .coin-wrap .bfc-detail,
+#Home .contents .coin-wrap .ethereum-detail,
+#Home .contents .coin-wrap .bnb-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+    
+#Home .contents
+.bfc-detail
+div:nth-child(odd),   
+#Home .contents
+.ethereum-detail
+div:nth-child(odd),   
+#Home .contents
+.bnb-detail
+div:nth-child(odd) {
+    font-size: 14px;
+    padding: 5px 0;
+}
+    
+#Home .contents
+.bfc-detail
+div:nth-child(even),   
+#Home .contents
+.ethereum-detail
+div:nth-child(even),   
+#Home .contents
+.bnb-detail
+div:nth-child(even) {
+    font-size: 22px;
+    font-weight: 600;
+    padding-bottom: 20px;
+}
+
+#Home .contents .coin-wrap .Btn {
+    height: 50px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: #eaf3ec;
+    border:1px solid #a1cea8;
+    color:#a1cea8;
+    transition-duration: 0.3s;
+}
+
+#Home .contents .coin-wrap .Btn:hover {
+    box-shadow: 0 10px 40px 0 rgb(62 57 107 / 7%), 0 2px 9px 0 rgb(62 57 107 / 6%);
+}
+
+/* notice */
+#Home .contents .notice-wrap{
+    height: 50%;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+#Home .contents .notice-wrap .notice-title{
+    box-sizing: border-box;
+    padding: 10px 0;
+    font-size: 20px;
+    border-bottom: 2px solid #a1cea8;
+}

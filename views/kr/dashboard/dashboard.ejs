@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link href="/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="/css/font.css" rel="stylesheet" type="text/css" />
+    <link href="/views/kr/dashboard/dashboard.css" rel="stylesheet" type="text/css" />
+    
+    <script type="text/javascript" src="/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="/javascripts/dashboard.js"></script>
+    <script type="text/javascript" src="/javascripts/util.js"></script>
+
+    <title>Banaba</title>
+  </head>
+
+  <body>
+    <div id="Dashboard">
+      <div class="dashboard-menu">
+        <div class="logo">
+          <div>
+            <img src="../../../images/logo.svg" alt="" />
+          </div>
+        </div>
+
+        <div class="menu-contents">
+          <%-include('./Menu/Menu.ejs')%>
+        </div>
+      </div>
+
+      <div class="dashboard-wrap">
+        <div class="dashboard-header">
+          <div>language</div>
+          <div>logout</div>
+        </div>
+
+        <div class="dashboard-contents ntRegular">
+          <div class="left-contents">
+            <div class="ntBold">나의 지갑 주소</div>
+            <div>0x73fa634c40fe2a2fd357da45d4c583e0284f347c</div>
+
+            <div class="circle-wrap">
+              <div>
+                <div class="deposit-circle"></div>
+                <div>입금하기</div>
+              </div>
+
+              <div>
+                <div class="copy-circle"></div>
+                <div>복사하기</div>
+              </div>
+            </div>
+
+            <div class="qr-wrap">
+              <div>
+                <img src="../../../images/qr.svg" alt="" />
+                
+                <div id="QR">
+                  <img src="../../../images/qr-code.svg" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-right">
+            <%-include('./home/home.ejs')%>
+            <%-include('./withdrawBit/withdrawBit.ejs')%>
+            <%-include('./withdrawEther/withdrawEther.ejs')%>
+            <%-include('./withdrawBanaba/withdrawBanaba.ejs')%>
+            <%-include('./staking/staking.ejs')%>
+            <%-include('./transaction/transaction.ejs')%>
+            <%-include('./stakingList/stakingList.ejs')%>
+            <%-include('./asset/asset.ejs')%>
+            <%-include('./myInfo/myInfo.ejs')%>
+            <%-include('./customer/customer.ejs')%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
