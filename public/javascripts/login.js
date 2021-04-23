@@ -1,9 +1,11 @@
 function idCheck(data) {
   let inputEmail = $("input[name=email]").val();
   let inputPassword = $("input[name=password]").val();
+  let loginForm = $('#login').serialize();
 
   if (inputEmail === "") {
     alert("이메일을 입력해주세요");
+    $("input[name=email]").focus();
 
     return false;
   } else {
@@ -11,6 +13,7 @@ function idCheck(data) {
 
     if (exptext.test(inputEmail) === false) {
       alert("이메일형식이 올바르지 않습니다.");
+      $("input[name=email]").focus();
 
       return false;
     }
@@ -18,37 +21,37 @@ function idCheck(data) {
 
   if (inputPassword === "") {
     alert("비밀번호를 입력해주세요");
+    $("input[name=password]").focus();
 
     return false;
   }
 
-  let yes = [];
-
-  for (var i = 0; i < data.length; i++) {
-    if (inputEmail === data[i].email) {
-      yes.push(inputEmail);
-
-      if (data[i].password !== inputPassword) {
-        alert("비밀번호를 확인해주세요.");
+  $.ajax({
+    type: "POST",
+    url: "/kr",
+    data: loginForm,
+    success: function (res) {   
+      if(res.length === 0) {
+        alert("가입되지 않은 이메일입니다.");
+        $("input[name=email]").focus();
 
         return false;
-      } else {
-        sessionStorage.setItem("userEmail", inputEmail);
-
-        location.href = `http://localhost:3000/kr/dashboard?id=${data[i].id}`;
-
-        return true;
       }
-    }
-  }
 
-  setTimeout(function () {
-    if (yes.length === 0) {
-      alert("가입되지않은 이메일입니다.");
+      if(res[0].password === inputPassword) {
+        sessionStorage.setItem("userEmail", res[0].email);
 
-      return false;
-    }
-  }, 500);
+        location.href = `http://localhost:3000/kr/dashboard?id=${res[0].id}`;
+      } else {
+        alert("비밀번호를 확인해주세요.");
+        $("input[name=password]").focus();
 
-  return;
+        return false;
+      }
+
+    },
+    error: function (result) {
+      alert("error");
+    },
+  });
 }

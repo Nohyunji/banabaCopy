@@ -95,9 +95,7 @@ $(document).ready(function () {
         if(e.currentTarget.id === "deleteUser"){
             var result = confirm("회원탈퇴를 원하시나요 ?");
 
-            if(result){
-                e.preventDefault();
-            
+            if(result){    
                 $.ajax({
                   type: "POST",
                   url: "/kr/dashboard",
