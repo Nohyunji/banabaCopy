@@ -147,5 +147,18 @@ $(document).ready(function () {
         }
     });
 
+    $('#Logout').click((e)=>{
+        var result =confirm("로그아웃 하시겠습니까?");
+
+        if(result){
+            alert("로그아웃 되었습니다.");
+
+            sessionStorage.clear();
+
+            location.href = `http://localhost:3000/kr`;
+        }
+
+        return;
+    })
 });
   
