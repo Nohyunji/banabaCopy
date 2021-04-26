@@ -94,10 +94,6 @@ $(document).ready(function () {
         // 회원탈퇴
         if(e.currentTarget.id === "deleteUser"){
             var result = confirm("회원탈퇴를 원하시나요 ?");
-
-            // $(".pop_overlay").css("display", "block");
-			// $(".pop_template").css("display", "block");
-            // $("body").css("overflow", "hidden");
             
             if(result){    
                 $.ajax({

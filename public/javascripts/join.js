@@ -37,7 +37,7 @@ function joinCheck(e) {
     url: "/kr/join",
     data: joinForm,
     success: function (res) {
-      if(res === "use"){
+      if(res[0].email){
         alert("이미 사용중인 이메일입니다.");
         $("input[name=email]").focus();
 

@@ -31,8 +31,6 @@ function idCheck(data) {
     url: "/kr",
     data: loginForm,
     success: function (res) { 
-      console.log("res ::" , res);
-
       if(!res.is_logined) {
         alert("이메일이나 비밀번호가 틀렸습니다.");
         $("input[name=email]").focus();

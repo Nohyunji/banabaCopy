@@ -27,7 +27,6 @@
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, #9ccca7 0%, #dfe4b5 50%, #fbffd6 100%);
-  /* background: linear-gradient(135deg, #97928a 0%, #d1d4d0 74%, #d1d4d0 100%); */
 }
 
 #Login .welecom > div {

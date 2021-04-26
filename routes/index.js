@@ -6,7 +6,6 @@ const session = require("express-session");
 
 /* GET home page. */
 router.get("/kr", (req, res, next) => {
-  console.log("로그인페이지",req.session);
   if(req.session.is_logined){
     res.redirect("/kr/dashboard");
   } else {
@@ -17,14 +16,12 @@ router.get("/kr", (req, res, next) => {
 router.post("/kr", (req, res, next) => {
   let info = JSON.parse(JSON.stringify(req.body));
 
-  let password;
-
   req.session.is_logined = false;
 
   crypto.pbkdf2(`${info.password}`, 'salt', 98765, 64, 'sha512', (err, derivedKey) => {
     if (err) throw err;
 
-    password = derivedKey.toString('hex'); 
+    let password = derivedKey.toString('hex');
 
     db.query(`select * from userinfo where email = '${info.email}' and password = '${password}'`, (err, data) => {
 
@@ -50,28 +47,24 @@ router.get("/kr/join", (req, res, next) => {
 router.post("/kr/join", function (req, res, next) {
   let info = JSON.parse(JSON.stringify(req.body));
 
-  let password ;
-
   db.query(`select * from userinfo where email = '${info.email}'`, (err, data) => {
      if(data.length === 0) {
         crypto.pbkdf2(`${info.password}`, 'salt', 98765, 64, 'sha512', (err, derivedKey) => {
           if (err) throw err;
 
-          password = derivedKey.toString('hex'); 
+          let password = derivedKey.toString('hex'); 
 
           db.query(`INSERT INTO userInfo (name, email, password, withdraw) VALUES ('${info.name}','${info.email}','${password}','${info.withdraw}')`,()=>{
             res.redirect("/kr");
           })
         });
      } else {
-      res.send('use');
+      res.send(data);
      }
   })
 });
 
 router.get("/kr/dashboard", (req, res, next) => {
-  console.log("대시보드 페이지",req.session);
-
   res.render("kr/dashboard/dashboard");
 });
 
