@@ -30,25 +30,17 @@ function idCheck(data) {
     type: "POST",
     url: "/kr",
     data: loginForm,
-    success: function (res) {   
-      if(res.length === 0) {
-        alert("가입되지 않은 이메일입니다.");
+    success: function (res) { 
+      console.log("res ::" , res);
+
+      if(!res.is_logined) {
+        alert("이메일이나 비밀번호가 틀렸습니다.");
         $("input[name=email]").focus();
 
         return false;
       }
 
-      if(res[0].password === inputPassword) {
-        sessionStorage.setItem("userEmail", res[0].email);
-
-        location.href = `http://localhost:3000/kr/dashboard?id=${res[0].id}`;
-      } else {
-        alert("비밀번호를 확인해주세요.");
-        $("input[name=password]").focus();
-
-        return false;
-      }
-
+      location.href = `http://localhost:3000/kr/dashboard?id=${res.is_id}`;
     },
     error: function (result) {
       alert("error");

@@ -95,13 +95,16 @@ $(document).ready(function () {
         if(e.currentTarget.id === "deleteUser"){
             var result = confirm("회원탈퇴를 원하시나요 ?");
 
+            // $(".pop_overlay").css("display", "block");
+			// $(".pop_template").css("display", "block");
+            // $("body").css("overflow", "hidden");
+            
             if(result){    
                 $.ajax({
                   type: "POST",
                   url: "/kr/dashboard",
-                  data: { email: sessionStorage.userEmail },
                   success: function (result) {
-                    alert("탈퇴완료되었습니다 :)");
+                    alert("Banaba Wallet을 이용해 주셔서 감사합니다 :)");
             
                     location.href = `http://localhost:3000/kr`;
                   },
@@ -151,11 +154,16 @@ $(document).ready(function () {
         var result =confirm("로그아웃 하시겠습니까?");
 
         if(result){
-            alert("로그아웃 되었습니다.");
-
-            sessionStorage.clear();
-
-            location.href = `http://localhost:3000/kr`;
+            $.ajax({
+                type: "GET",
+                url: "/kr/logout",
+                success: function (res) {
+                    location.href = `http://localhost:3000/kr`;
+                },
+                error: function (res) {
+                  alert("error");
+                },
+            });
         }
 
         return;

@@ -125,3 +125,23 @@
   width: 65%;
 }
 
+/* pop_overlay */
+/* #Dashboard .pop_overlay{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100000;
+  height: 100vh;
+  background: rgba(0,0,0,.70);
+}
+
+#Dashboard .pop_content{
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100001;  
+} */

@@ -7,6 +7,9 @@ var logger = require("morgan");
 
 var Router = require("./routes/index");
 
+const session = require('express-session');
+const FileStore = require('session-file-store')(session);
+
 var app = express();
 
 // view engine setup
@@ -22,7 +25,18 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/lib", express.static(path.join(__dirname, "node_modules/jquery/dist")));
 
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  store: new FileStore()
+}));
+
 app.use("/", Router);
+
+app.use('/favicon.ico', () => {
+});
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
@@ -32,6 +46,7 @@ app.use(function (req, res, next) {
 app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
+  res.locals.user = req.session;
   res.locals.error = req.app.get("env") === "development" ? err : {};
 
   // render the error page

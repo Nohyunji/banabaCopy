@@ -1,22 +1,46 @@
 var express = require("express");
+const crypto = require('crypto');
 var router = express.Router();
 const db = require("./../db");
+const session = require("express-session");
 
 /* GET home page. */
 router.get("/kr", (req, res, next) => {
-  res.render("kr/login/login");
+  console.log("로그인페이지",req.session);
+  if(req.session.is_logined){
+    res.redirect("/kr/dashboard");
+  } else {
+    res.render("kr/login/login");
+  }
 });
 
 router.post("/kr", (req, res, next) => {
   let info = JSON.parse(JSON.stringify(req.body));
 
-  db.query(`select * from userinfo where email = '${info.email}'`, (err, data) => {
-    if(data.length === 0) {
-      res.send(data);
-    } else if (data[0].email === info.email){
-      res.send(data);
-    }
-  })
+  let password;
+
+  req.session.is_logined = false;
+
+  crypto.pbkdf2(`${info.password}`, 'salt', 98765, 64, 'sha512', (err, derivedKey) => {
+    if (err) throw err;
+
+    password = derivedKey.toString('hex'); 
+
+    db.query(`select * from userinfo where email = '${info.email}' and password = '${password}'`, (err, data) => {
+
+      if(data.length === 1){
+        req.session.is_logined = true;
+        req.session.is_id = data[0].id;
+        req.session.is_email = data[0].email;
+
+        req.session.save(function(){
+          res.send(req.session);
+        }) 
+      } else {
+        res.send(req.session);
+      }
+    })
+  });
 });
 
 router.get("/kr/join", (req, res, next) => {
@@ -26,29 +50,42 @@ router.get("/kr/join", (req, res, next) => {
 router.post("/kr/join", function (req, res, next) {
   let info = JSON.parse(JSON.stringify(req.body));
 
+  let password ;
+
   db.query(`select * from userinfo where email = '${info.email}'`, (err, data) => {
-    if(data.length === 0) {
+     if(data.length === 0) {
+        crypto.pbkdf2(`${info.password}`, 'salt', 98765, 64, 'sha512', (err, derivedKey) => {
+          if (err) throw err;
 
-      db.query(`INSERT INTO userInfo (name, email, password, withdraw) VALUES ('${info.name}','${info.email}','${info.password}','${info.withdraw}')`,()=>{
-        res.redirect("/kr");
-      })
-    } else if(data.length === 1) {
+          password = derivedKey.toString('hex'); 
+
+          db.query(`INSERT INTO userInfo (name, email, password, withdraw) VALUES ('${info.name}','${info.email}','${password}','${info.withdraw}')`,()=>{
+            res.redirect("/kr");
+          })
+        });
+     } else {
       res.send('use');
-    }
+     }
   })
-
 });
 
 router.get("/kr/dashboard", (req, res, next) => {
+  console.log("대시보드 페이지",req.session);
+
   res.render("kr/dashboard/dashboard");
 });
 
-router.post("/kr/dashboard", function (req, res, next) {
-  let info = JSON.parse(JSON.stringify(req.body));
+router.get("/kr/logout", function (req, res, next) {
+  req.session.destroy(function(err) {
+    res.redirect('/kr');
+  })
+});
 
-  console.log("info.email :: ",info.email);
-  db.query(`DELETE FROM userInfo where email = '${info.email}'`,(err, data)=>{
-      res.redirect("/kr");
+router.post("/kr/dashboard", function (req, res, next) {
+  db.query(`DELETE FROM userInfo where email = '${req.session.is_email}'`,(err, data)=>{
+    req.session.destroy(function(err) {
+      res.redirect('/kr');
+    })
   })
 });
 
