@@ -29,7 +29,10 @@ app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: true,
-  store: new FileStore()
+  store: new FileStore({logFn: function(){}}),
+  cookie:{
+    maxAge:1000 * 60 * 60, //1hour
+  }
 }));
 
 app.use("/", Router);

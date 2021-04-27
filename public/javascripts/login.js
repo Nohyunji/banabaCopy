@@ -25,20 +25,20 @@ function idCheck(data) {
 
     return false;
   }
-
-  $.ajax({
+  
+   $.ajax({
     type: "POST",
     url: "/kr",
     data: loginForm,
     success: function (res) { 
-      if(!res.is_logined) {
+      if(res.is_logined === false) {
         alert("이메일이나 비밀번호가 틀렸습니다.");
         $("input[name=email]").focus();
 
         return false;
       }
 
-      location.href = `http://localhost:3000/kr/dashboard?id=${res.is_id}`;
+      location.reload();
     },
     error: function (result) {
       alert("error");

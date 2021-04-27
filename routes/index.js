@@ -7,7 +7,7 @@ const session = require("express-session");
 /* GET home page. */
 router.get("/kr", (req, res, next) => {
   if(req.session.is_logined){
-    res.redirect("/kr/dashboard");
+    res.redirect(`/kr/dashboard?id=${req.session.is_id}`);
   } else {
     res.render("kr/login/login");
   }
@@ -24,14 +24,13 @@ router.post("/kr", (req, res, next) => {
     let password = derivedKey.toString('hex');
 
     db.query(`select * from userinfo where email = '${info.email}' and password = '${password}'`, (err, data) => {
-
       if(data.length === 1){
         req.session.is_logined = true;
         req.session.is_id = data[0].id;
         req.session.is_email = data[0].email;
 
         req.session.save(function(){
-          res.send(req.session);
+          res.redirect(`/kr/dashboard?id=${data[0].id}`);
         }) 
       } else {
         res.send(req.session);
@@ -65,10 +64,16 @@ router.post("/kr/join", function (req, res, next) {
 });
 
 router.get("/kr/dashboard", (req, res, next) => {
-  res.render("kr/dashboard/dashboard");
+  console.log(req.session.is_logined);
+
+  if(!req.session.is_logined){
+    res.redirect("/kr");
+  }
+
+  res.render(`kr/dashboard/dashboard`);
 });
 
-router.get("/kr/logout", function (req, res, next) {
+router.post("/kr/logout", function (req, res, next) {
   req.session.destroy(function(err) {
     res.redirect('/kr');
   })

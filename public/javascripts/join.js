@@ -53,3 +53,18 @@ function joinCheck(e) {
     },
   });
 }
+
+
+$( document ).ready(function() {
+  $("input[name=passwordCheck]").on("change keyup", function() {
+    let currentVal = $(this).val();
+
+    let originVal = $("input[name=password]").val();
+    
+    if(currentVal === originVal) {
+      $('#passwordCheck').html("<div style='color: green; font-size: 12px; padding: 10px;'>비밀번호가 동일합니다.</div>");
+    } else {
+      $('#passwordCheck').html("<div style='color: red; font-size: 12px; padding: 10px;'>비밀번호가 동일하지 않습니다.</div>");
+    }
+  });
+});

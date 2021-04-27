@@ -100,6 +100,8 @@ $(document).ready(function () {
                   type: "POST",
                   url: "/kr/dashboard",
                   success: function (result) {
+                      console.log(result);
+
                     alert("Banaba Wallet을 이용해 주셔서 감사합니다 :)");
             
                     location.href = `http://localhost:3000/kr`;
@@ -151,7 +153,7 @@ $(document).ready(function () {
 
         if(result){
             $.ajax({
-                type: "GET",
+                type: "POST",
                 url: "/kr/logout",
                 success: function (res) {
                     location.href = `http://localhost:3000/kr`;
